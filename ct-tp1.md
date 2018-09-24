@@ -244,11 +244,16 @@ Pour modifier la configuration du démon, on peut directement modifier l'unité 
   * test : `docker info`, ou `df -h` à chaque lancement de conteneur
   * test2 : lancer un conteneur, exécuter un shell dedans, remplir le disque complètement. Plus aucune opération est réalisable. On peut tuer le conteneur depuis l'extérieur (le disque de l'hôte n'est pas rempli)
 
-* <u>optionnel</u> : utilisation des *user namespaces*
-  * ceci permettra d'accéder à un très haut niveau de sécurité (via une isolation quasi-totale des utilisateurs de l'hôte par rapport à ceux des conteneurs). Expliquez avec vos mots en quoi consiste l'utilisation des *user namespaces* par `docker`
-  * activez l'utilisation des *user namespaces* par votre kernel
-  * utilisez le *user namespace remapping* du démon docker
+* <u>optionnel</u> : utilisation des *user namespaces*A
+  * par défaut, les *user namespaces* ne sont pas utilisés par votre kernel, et donc pas par Docker non plus
+  * l'activation des *user namespaces* permettra d'accéder à un très haut niveau de sécurité (via une isolation quasi-totale des utilisateurs de l'hôte par rapport à ceux des conteneurs).
+  * pour les mettre en place :
+    * activez l'utilisation des *user namespaces* par votre kernel
+    * utilisez le *user namespace remapping* du démon docker
+    * y'a des bonnes docs sur le web, je vous laisse chercher un peu
+  * expliquez avec vos mots en quoi consiste l'utilisation des *user namespaces* par `docker`
   * test : vérifiez l'appartenance de votre répertoire Docker de data (`/data` si vous l'avez changé comme demandé plus haut)
+  * test2 : regardez l'utilisateur qui lance les process conteneurisés (depuis l'intérieur du conteneur, et depuis l'hôte)
    
 ## Déploiement d'application n-tiers avec `compose`
 
