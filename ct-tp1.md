@@ -238,8 +238,8 @@ Pour modifier la configuration du démon, on peut directement modifier l'unité 
 * votre démon Docker doit utilisez [la politique `seccomp`  recommandée par le projet Moby](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json)
   * expliquez brièvement, avec vos mots, ce qu'est `seccomp` et le rapport avec `docker`
 
-* suivez [la doc officielle](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production) pour mettre en place l'utilisation d'une backend `device-mapper` en `direct-lvm` (*"CONFIGURE DIRECT-LVM MODE MANUALLY"*) côté stockage
-  * expliquez l'utilité d'utiliser ce driver de stockage
+* suivez [la doc officielle](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production) pour mettre en place l'utilisation d'une backend `device-mapper` en `direct-lvm` côté stockage (automatique avec "Allow Docker to configure direct-lvm mode" ou à la main avec "Configure direct-lvm mode manually")
+  * expliquez l'utilité d'utiliser ce driver de stockage (la réponse n'est PAS juste "c'est sécurisé")
   * mettez en place une configuration valide avec le driver `device-mapper`
   * test : `docker info`, ou `df -h` à chaque lancement de conteneur
   * test2 : lancer un conteneur, exécuter un shell dedans, remplir le disque complètement. Plus aucune opération est réalisable. On peut tuer le conteneur depuis l'extérieur (le disque de l'hôte n'est pas rempli)
