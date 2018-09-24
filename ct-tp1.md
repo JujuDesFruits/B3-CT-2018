@@ -29,6 +29,8 @@ Simple : suivez la [doc officielle](https://docs.docker.com/install/linux/docker
 
 <u>Détails de l'installation :</u>  
 * utilisez `repoquery` pour voir les fichiers installés par ce paquet
+* il vous faudra aussi installer les librairies liées à `seccomp` (la doc Docker n'est pas à jour à ce sujet à la date du 24/09/18) 
+  * `yum install -y libseccomp`
 * démarrez le service `docker` à l'aide d'une commande `systemctl`
 * mettez en place une configuration afin de pouvoir utilisez docker **sans être `root`**. Expliquez en quoi cela pourrait être dangereux d'un point de vue sécurité (c'est en rapport avec le groupe d'utilisateurs `docker`)
 * utilisez `docker info` pour s'assurer du bon fonctionnement de Docker
