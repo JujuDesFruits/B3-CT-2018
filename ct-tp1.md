@@ -251,9 +251,13 @@ Pour modifier la configuration du démon, on peut directement modifier l'unité 
   * test : vérifiez l'appartenance de votre répertoire Docker de data (`/data` si vous l'avez changé comme demandé plus haut)
    
 ## Déploiement d'application n-tiers avec `compose`
+
+Afin de lancer plusieurs conteneurs qui fonctionnent de concert, de façon simultanée, on utilise l'outil docker-compose. Afin de lancer ces conteneurs, on définit l'architecture n-tiers dans un fichier YAML, avant de le lancer avec le binaire `docker-compose`.
  
+Pour cette partie, vous pourrez vous inspirer du [fichier YAML de ce projet](https://github.com/radio-bretzel/radio-bretzel/blob/develop/stack-dev-app.yml).
+
 * installez `docker-compose` en suivant la doc officielle
-* packagez le code python fourni (créer une image) (deux fichiers : un qui a l'app, l'autre qui a les dépendances. Pour installer les dépendances, il faut faire `pip install <FILE>` où `FILE` est le fichier `requirements`. Je vous conseille de partir de l'image `python:3.5.4-alpine` :)
+* packagez le code python fourni (créer une image). Pour installer les dépendances, il faut faire `pip install <FILE>` où `FILE` est le fichier `requirements`. Je vous conseille de partir de l'image `python:3.5.4-alpine` :)
 * créez un compose qui contient : 
     * un conteneur *Redis* (stockage clé/valeur)
     * un conteneur avec l'app Python packagée (qui écrit/lit des valeurs dans Redis)
