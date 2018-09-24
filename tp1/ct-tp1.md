@@ -71,7 +71,7 @@ Outil bas-niveau. Utilisation de `systemd` pour créer des conteneurs. Utilisati
 * peut faire boot un OS complet (je parle de VRAIMENT dérouler la séquence de boot)
 * impossible de reboot, ou de toucher au kernel (chargement de modules, etc..)  
 
-Création et manipulation d'un conteneur Alpine : 
+A. **Création et manipulation d'un conteneur Alpine :**  
 * récupérez le fiilesystem de Alpine, "à plat", dans un dossier
   * `mkdir alpine`
   * `docker export $(docker create alpine) | tar -C alpine -xvf -`
@@ -79,11 +79,12 @@ Création et manipulation d'un conteneur Alpine :
   * regardez un peu dedans pour comprendre ce qu'il vient de se passer
 * lancer un conteneur simple avec `systemd`, en utiliisant le répertoire Alpine : `systemd-nspawn -D ./alpine`
 * tout ça c'est du systemd hein. `systemctl | grep machine`, vous devriez voir un scope cgroup dans lequel évolue votre conteneur. `systemd-cgls` ou `systemd-cgtop` pour mieux le voir 
-* explorez les options de `systemd-nspawn` :
+* explorez les options de `systemd-nspawn` (c'est à dire taper `systemd-nspawn --help` et regarder un peu ce qui est disponible). A l'aide des options de `systemd-nspawn` :
   * créer un répertoire temporaire dans le conteneur avec `tmpfs` (bonus : expliquez l'utilité de `tmpfs`)
   * isoler complètement le conteneur en terme de réseau
 
-* Debian container et boot complet (le téléchargement peut être très long à Ingésup, vous pouvez passez outre cet exercice si c'est le cas)
+B. **Création et manipulation d'un conteneur Debian**
+* Debian container et boot complet (**le téléchargement peut être très long à Ingésup, vous pouvez passez outre cet exercice si c'est le cas**)
     * utilisez `debootstrap` (besoin des dépôts EPEL pour l'installer)
     * choisissez une distrib dans `/usr/share/debootstrap/scripts/` :)
     * pour un debian wheezy `debootstrap wheezy /deb http://deb.debian.org/debian/` vous pouvez changer l'url vers ` http://archive.ubuntu.com/ubuntu/` pour une distrib ubuntu
