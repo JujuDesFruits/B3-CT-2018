@@ -48,7 +48,9 @@ Ici, on va regarder d'un peu plus près les `cgroups` et les `namespaces`.
 * depuis votre machine hôte, trouvez le processus lancé à l'intérieur du conteneur (à l'aide d'un `ps`)
 * mettez en évidence l'utilisation des `namespaces` et des `cgroups` par ce conteneur
   * il existe plusieurs façons de faire ça, je vous en ai déjà montré, ça se trouve aussi sur l'ami Internet 
-  * indices en vrac : `systemd` pourra vous aider, le répertoire `/proc` aussi
+  * indices en vrac :
+    * vous pouvez visualiser les cgroups de votre système en utilisant `systemd-cgtop` et `systemd-cgls` (il existe aussi d'autres moyens)
+    * pour voir les namespaces utilisés par un processus, on peut exécuter la commande `ls -al /proc/<PROCESS ID>/ns`
 
 ### Autres moyens de conteneurisation
 
