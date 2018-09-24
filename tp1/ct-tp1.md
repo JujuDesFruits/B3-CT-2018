@@ -260,16 +260,24 @@ Pour modifier la configuration du démon, on peut directement modifier l'unité 
 ## Déploiement d'application n-tiers avec `compose`
 
 Afin de lancer plusieurs conteneurs qui fonctionnent de concert, de façon simultanée, on utilise l'outil docker-compose. Afin de lancer ces conteneurs, on définit l'architecture n-tiers dans un fichier YAML, avant de le lancer avec le binaire `docker-compose`.
+
+L'idée de cette partie est la suivante : 
+* je suis un dév, j'ai développée une application Python
+  * l'application a besoin d'un Python 3 pour fonctionner
+  * l'application a besoin d'un stockage Redis pour fonctionner, il doit être joignable au nom de domaine `db`
+* vous êtes un admin, vous devez packager mon application Python
  
 Pour cette partie, vous pourrez vous inspirer du [fichier YAML de ce projet](https://github.com/radio-bretzel/radio-bretzel/blob/develop/stack-dev-app.yml).
 
+**Vous n'avez pas besoin de lire le code de l'application pour réaliser l'exercice**  
+
 * installez `docker-compose` en suivant la doc officielle
-* packagez le code python fourni (créer une image). Pour installer les dépendances, il faut faire `pip install <FILE>` où `FILE` est le fichier `requirements`. Je vous conseille de partir de l'image `python:3.5.4-alpine` :)
+* packagez le code python fourni (créer un Dockerfile, puis construisez une image). Le code Python a besoin de certaines libs : elles sont renseignées dans le fichier requirements. Pour installer les dépendances, il faut utiliser `pip`. Je vous conseille de partir de l'image `python:3.5.4-alpine` :)
 * créez un compose qui contient : 
     * un conteneur *Redis* (stockage clé/valeur)
     * un conteneur avec l'app Python packagée (qui écrit/lit des valeurs dans Redis)
     * l'app Python doit pouvoir joindre un hôte Redis avec le hostname `db` sur le port 6379
-* ouvrez un navigateur sur votre machine, rdv à `http://<IP_VM>:5000`
+* ouvrez un navigateur sur votre machine, vous devez pouvoir joindre l'application
 * modifiez le fichier `yml` et ajouter un troisième conteneur reverse proxy NGINX qui redirige vers l'interface web de l'app Python
 
 * à la fin : 
