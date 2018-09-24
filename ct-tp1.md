@@ -127,7 +127,7 @@ Let's hack this shit.
     * un applicatif qui se lance en `ExecStart` (comme un nginx) dans un filesystem créé plus haut (on peut `chroot` à l'intérieur pour le configurer facilement
     * ça tient sur quelques lignes et on crée un process complètement cloisonné
 
-* c'est aussi gérable de coder rapidement un petit programme (en Python par exemple) qui crée des conteneurs très basiques (en utilisant les appels système `unshare` et `nsenter`, il exiiste une commande bash pour les deux, et une lib Python :) )
+* c'est aussi gérable de coder rapidement un petit programme (en Python par exemple) qui crée des conteneurs très basiques (en utilisant les appels système `unshare` et `nsenter`, il existe une commande bash pour les deux, et une lib Python :) )
 
 #### 4. avec rkt
 * **caractéristiques** :
