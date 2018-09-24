@@ -89,7 +89,7 @@ B. **Création et manipulation d'un conteneur Debian**
 * Debian container et boot complet (**le téléchargement peut être très long à Ingésup, vous pouvez passez outre cet exercice si c'est le cas**)
     * utilisez `debootstrap` (besoin des dépôts EPEL pour l'installer)
     * choisissez une distrib dans `/usr/share/debootstrap/scripts/` :)
-    * pour un debian wheezy `debootstrap wheezy /deb http://deb.debian.org/debian/` vous pouvez changer l'url vers ` http://archive.ubuntu.com/ubuntu/` pour une distrib ubuntu
+    * pour un debian wheezy `debootstrap --arch=amd64 wheezy /deb http://deb.debian.org/debian/` vous pouvez changer l'url vers ` http://archive.ubuntu.com/ubuntu/` pour une distrib ubuntu
     * `systemd-nspawn -D /deb` pour avoir un shell dans le conteneur
     * en utilisant `systemd-nspawn -D /deb -b` vous pouvez lancer la séquence de boot
 
