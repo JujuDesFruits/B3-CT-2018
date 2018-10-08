@@ -281,7 +281,7 @@ Pour cette partie, vous pourrez vous inspirer du [fichier YAML de ce projet](htt
 * packagez le code python fourni (créer un Dockerfile, puis construisez une image). Le code Python a besoin de certaines libs : elles sont renseignées dans le fichier requirements. Pour installer les dépendances, il faut utiliser `pip`. Je vous conseille de partir de l'image `python:3.5.4-alpine` :)
 * créez un compose qui contient : 
     * un conteneur *Redis* (stockage clé/valeur)
-    * un conteneur avec l'app Python packagée (qui écrit/lit des valeurs dans Redis)
+    * un conteneur avec [l'app Python packagée](./compose) (qui écrit/lit des valeurs dans Redis)
     * l'app Python doit pouvoir joindre un hôte Redis avec le hostname `db` sur le port 6379
 * ouvrez un navigateur sur votre machine, vous devez pouvoir joindre l'application
 * modifiez le fichier `yml` et ajouter un troisième conteneur reverse proxy NGINX qui redirige vers l'interface web de l'app Python
