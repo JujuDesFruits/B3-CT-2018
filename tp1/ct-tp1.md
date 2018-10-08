@@ -244,6 +244,7 @@ Pour modifier la configuration du démon, on peut directement modifier l'unité 
   * expliquez brièvement, avec vos mots, ce qu'est `seccomp` et le rapport avec `docker`
 
 * suivez [la doc officielle](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production) pour mettre en place l'utilisation d'une backend `device-mapper` en `direct-lvm` côté stockage (automatique avec "Allow Docker to configure direct-lvm mode" ou à la main avec "Configure direct-lvm mode manually", une config à la main avec un peu d'explication sera valorisée)
+  * il vous faudra utiliser le mode `experimental` de Docker (suite à une mise à jour récente)
   * expliquez l'utilité d'utiliser ce driver de stockage (la réponse n'est PAS juste "c'est sécurisé")
   * mettez en place une configuration valide avec le driver `device-mapper`
   * test : `docker info`, ou `df -h` à chaque lancement de conteneur
