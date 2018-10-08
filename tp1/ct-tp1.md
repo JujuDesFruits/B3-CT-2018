@@ -278,7 +278,7 @@ Pour cette partie, vous pourrez vous inspirer du [fichier YAML de ce projet](htt
 **Vous n'avez pas besoin de lire le code de l'application pour réaliser l'exercice**  
 
 * installez `docker-compose` en suivant la doc officielle
-* packagez le code python fourni (créer un Dockerfile, puis construisez une image). Le code Python a besoin de certaines libs : elles sont renseignées dans le fichier requirements. Pour installer les dépendances, il faut utiliser `pip`. Je vous conseille de partir de l'image `python:3.5.4-alpine` :)
+* packagez [le code python fourni](./compose) (créer un Dockerfile, puis construisez une image). Le code Python a besoin de certaines libs : elles sont renseignées dans le fichier requirements. Pour installer les dépendances, il faut utiliser `pip`. Je vous conseille de partir de l'image `python:3.5.4-alpine` :)
 * créez un compose qui contient : 
     * un conteneur *Redis* (stockage clé/valeur)
     * un conteneur avec [l'app Python packagée](./compose) (qui écrit/lit des valeurs dans Redis)
