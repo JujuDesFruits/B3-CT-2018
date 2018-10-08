@@ -206,9 +206,11 @@ Caractéristiques de Docker (en quelques mots) :
 
 Pour rappel, les Dockerfiles servent à créer des images, elles-mêmes utilisées pour lancer des conteneurs. 
 
+`Dockerfile ---build---> image ---run---> container`
+
 Les Dockerfiles (à part cas spécifiques) sont le plus souvent créés à partir d'autres Dockerfiles. Vous voulez packager Python ? Prenez une image de base légère (alpine, debian, autres) et ajoutez-y Python. 
 
-* le but ici sera de créer un Dockerfile qui lance une application Web simple, exposée vers l'extérieur
+* le but ici sera de créer un Dockerfile qui lance une application Web simple, exposée vers l'extérieur. N'hésitez pas à lancer `docker build` sur votre Dockerfile entre chaque étape (pour vérifier que l'image se contruit correctement)
   * créez un Dockerfile basé sur debian 
   * créez, dans l'image, un répertoire à la racine qui contiendra votre site : `/web`
   * définissez un répertoire de travail au sein du Dockerfile (clause `WORKDIR`)
