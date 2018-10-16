@@ -7,7 +7,7 @@
   * Raphael
 
 * sujet
-  * script avec prompt user (python ou bash)
+  * **script de déploiement** avec prompt user (python ou bash)
     * il lance des conteneurs, compose
     * à partir de Dockerfiles/docker-compose maîtrisés
   * Dockerfiles robustes
@@ -24,7 +24,7 @@
   * Nakib
 
 * sujet
-  * environnements de développement
+  * **environnements de développement** client
     * doc ou script (Linux/Windows)
   * Dockerfiles/docker-compose
     * bonnes pratiques
@@ -41,7 +41,7 @@
   * Antoine
   * Benjamin
 
-* CI/CD + Kube
+* **CI/CD + Kube**
   * pipelines CI/CD + git
     * env de test/prod
   * kube
