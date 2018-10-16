@@ -196,9 +196,9 @@ On va rester très simple ici pour la partie testing :
   
 * **HINT** : utilisez l'executor Docker sur l'image poussée précédemment. Votre image doit permettre d'utiliser un shell dedans (=> pas d'`ENTRYPOINT` et tout en `CMD`). Dans des cas réels, on voit souvent deux images construites puis poussées : une de test, qui est testée (tout en `CMD`), puis une deuxième, de prod (tout en `ENTRYPOINT`).
   
-#### Packaging avancé
+#### Besoin 3 : packaging avancé
 
-Mettre en place une pipeline de build/test similaire en packageant l'application Python du TP1 (interface web + Redis). 
+Mettre en place une pipeline de build + tests similaire en packageant l'application Python du TP1 (interface web + Redis). 
 
 ## Part 2 : Docker swarm
 
