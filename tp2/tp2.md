@@ -5,6 +5,9 @@
 * désactiver SELinux
 * laisser **activé** le firewall et le configurer si besoin
 * inspirez-vous du TP précédent pour certains détails (install + conf Docker)
+* un hostname correctement défini (et le fichier `/etc/hosts` rempli)
+  * pour TOUS les hôtes (si vous en utilisez plusieurs, comme pour la partie Docker Swarm)
+  * dans TOUTES les parties du TP
 
 ## Part 1 : Gitlab
 Ici, seront déployés, sur une nouvelle VM :  
