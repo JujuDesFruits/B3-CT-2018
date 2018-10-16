@@ -68,9 +68,7 @@ sudo EXTERNAL_URL="http://gitlab.example.com" yum install -y gitlab-ce
 * vous devriez pouvoir avoir accès au registre dans votre projet (sur l'interface web)
 * et vous devriez pouvoir vous logger avec `docker login <FQDN>:<PORT>`
     * sauf que votre registe est 'insecure' : le certificat est auto-signé
-    * pour cela, il faudra copier le  certificat dans `/etc/docker/certs.d/<FQDN:PORT>/ca.crt` (créer le répertoire s'il n'existe pas) afin de faire confiance au certificat
-    * le nom du dossier <FQDN:PORT> *est important* (doit porter le hostname du registre)
-    * le nom du certificat `ca.crt` est lui aussi *obligatoire*
+    * trouvez un moyen de l'accepter malgré tout (et expliquez dans le compte-rendu)
 
 * push une image sur l'espace du registre dédié à ce projet
     * le nom de l'image doit se conformer à une syntaxe précise, par exemple, pour push une image alpine
@@ -93,13 +91,13 @@ docker login gitlab.b3.ingesup:9999
 docker push gitlab.b3.ingesup:9999/root/test-project/alpine:mine 
 ```
 
-* **(optionnel)** Mettre en place un contrôle de syntaxe des fichiers Dockerfile et docker-compose.yml qui sont poussés sur le dépôt
-    * pour ce faire, il faut rédiger un script du langage de votre choix (bash, python, autres) et l'utiliser comme un hook git 
+* Expliquer comment mettre en place un check de syntaxe sur les Dockerfiles et `docker-compose.yml` AVANT d'accepter un push
+  * **(optionnel)** Mettre en place ce contrôle de syntaxe 
    
 ### 5. Gitlab-runner
 
 Gitlab-runner est le nom de l'utilitaire permettant de transformer une machine en Runner pour Gitlab. Awi, qu'est-ce qu'un Runner ? De façon simple, un Runner est un hôte que Gitlab peut utiliser pour lancer des actions.  
-Vous développez une appli Python. Vous faites des push vers le dépôt Gitlab. Automatiquement, des actions sont exécutées pour tester le bon fonctionnement de l'app Python. C'est le Runner qui exécute ces actions.  
+Exemple : vous développez une appli Python. Vous faites des push vers le dépôt Gitlab. Automatiquement, des actions sont exécutées pour tester le bon fonctionnement de l'app Python. C'est le Runner qui exécute ces actions.  
 
 * installer un runner (il lancera vos tests)
     * se référer à [cette doc](https://docs.gitlab.com/runner/install/linux-repository.html)
@@ -137,23 +135,14 @@ sleepytest-in-docker:
     - /bin/sleep 3
   tags:
     docker
-    
- sleepytest-in-shell:
-  script:
-    - ls
-    - whoami
-    - df -h
-    - /bin/sleep 3
-  tags:
-    shell
 ```
 * une fois add, commit et push, le build devrait ête visible sur l'interface graphique de Gitlab :)
 
 * vous pourrez trouver une bonne doc sur le contenu d'un build Gitlab à [cette url](https://docs.gitlab.com/ee/ci/yaml)
 
-* je vous conseille de jouer un peu avec les builds avant de vous attaquer à la suite. 
+* je vous conseille de jouer un peu avec les builds avant de vous attaquer à la suite (essayez un peu l'executor `shell`, par exemple)
 
-* **NB** : certaines configurations (simples) seront nécessaires pour que tout ça marche. Les messages d'erreur devraient êter explicites. Cherchez par vous-mêmes mais n'hésitez pas à m'appeler. 
+* **NB** : certaines configurations (simples) seront nécessaires pour que tout ça marche. Les messages d'erreur devraient êter explicites. Cherchez par vous-mêmes avant tout, mais n'hésitez pas à m'appeler. 
 
 ### 6. Build, build, build
 
