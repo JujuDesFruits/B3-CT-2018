@@ -1,4 +1,4 @@
-Discord : https://discord.gg/wjpuBh
+Discord : https://discord.gg/P3V8tf
 
 # B3 - Conteneurisation 
 
