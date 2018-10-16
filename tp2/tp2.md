@@ -54,7 +54,7 @@ sudo EXTERNAL_URL="http://gitlab.example.com" yum install -y gitlab-ce
     * modifier le fichier `/etc/gitlab/gitlab.rb` :
         * `external_url 'https://<HOSTNAME>'`
     * redémarrer gitlab complètement avec `gitlab-ctl reconfigure`
-    * n'oubliez pas de reconfigurer le firewall !
+    * n'oubliez pas de reconfigurer le firewall ! (je veux voir votre config firewall dans le compte-rendu)
 * vous devrez pouvoir vous connecter sur `https://<HOSTNAME>`
 
 ### 4. Docker registry 
