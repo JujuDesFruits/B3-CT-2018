@@ -31,7 +31,7 @@ Le but va être de monter une pipeline de CI/CD Gitlab. Un morceau de code vous 
 ### 2. Installer Docker
 
 * suivre la doc officielle
-* utiliser comme répertoire de données `/data/docker`
+* utiliser comme répertoire de données `/data/docker` (fichier de configuration du daemon, toujours le même, au format `json`)
 
 ### 3. Installer gitlab-ce
 On va utiliser l'installation "omnibus" de Gitlab. N'hésitez pas à vous référer à [la doc officielle](https://about.gitlab.com/installation/#centos-7?version=ce). 
