@@ -1,3 +1,5 @@
+Discord : https://discord.gg/wjpuBh
+
 # B3 - Conteneurisation 
 
 **RAPPELS** :    
